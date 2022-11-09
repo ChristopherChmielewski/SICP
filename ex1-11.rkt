@@ -1,4 +1,6 @@
-; Exercise 1.1 Page 42
+#lang scheme
+
+; Exercise 1.11 Page 42
 
 ; A recursive process to compute the recurrance relation
 (define (fn-rec n) 
@@ -7,7 +9,7 @@
     (+ (fn-rec (- n 1)) (* 2 (fn (- n 2))) (* 3 (fn (- n 3))))))
 
 ; A iterative process to compute the recurrance relation
-(define (fn n)
+(define (fn1 n)
   (fn-iter 2 1 0 n))
 
 (define (fn-iter a b c count)
