@@ -1,4 +1,4 @@
-#lang scheme
+#lang sicp
 
 ; Exercise 1.11 Page 42
 

@@ -1,4 +1,4 @@
-#lang scheme
+#lang sicp
 
 ; General formula for Pascal's triangle: p(r, c) = p(r - 1, c -1) + p(r - 1 , c) where r is row and c
 ; is column. Use initial conditions (1, 1) = (2, 1) = (2, 2) = (3, 1) = 1
