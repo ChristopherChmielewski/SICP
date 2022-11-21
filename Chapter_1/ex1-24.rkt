@@ -38,7 +38,7 @@
   (start-prime-test n (runtime)))
 
 (define (start-prime-test n start-time)
-  (if (fast-prime? n 5)
+  (if (fast-prime? n 100)
       (report-prime (- (runtime) start-time))))
 
 (define (report-prime elapsed-time)
@@ -46,7 +46,7 @@
   (display elapsed-time))
 
 (define (check-prime n c)
-  (cond ((and (fast-prime? n 5) (< c 3)) (timed-prime-test n) (check-prime (+ n 2) (+ c 1)))
+  (cond ((and (fast-prime? n 100) (< c 3)) (timed-prime-test n) (check-prime (+ n 2) (+ c 1)))
         ((< c 3) (check-prime (+ n 2) c))
         ))
 
@@ -56,12 +56,29 @@
       (check-prime start-num 0)
       ))
 
+(search-for-primes 1000)
+(newline)
+(search-for-primes 1000000)
+
+; (search-for-primes 10)
+; (newline)
+; (search-for-primes 100)
+; (newline)
+; (search-for-primes 1000)
+; (newline)
+; (search-for-primes 10000)
+; (newline)
+; (search-for-primes 100000)
+; (newline)
+; (search-for-primes 1000000)
+; (newline)
 ; (search-for-primes 10000000)
 ; (newline)
 ; (search-for-primes 100000000)
 ; (newline)
 ; (search-for-primes 1000000000)
 
-(search-for-primes 1000)
-(newline)
-(search-for-primes 1000000)
+
+
+
+
