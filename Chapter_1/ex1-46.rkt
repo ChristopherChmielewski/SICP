@@ -13,7 +13,7 @@
         ))
   (lambda (guess) (iter guess)))
 
-; subprocedures
+; square root subprocedures
 
 (define (square x) (* x x))
 
