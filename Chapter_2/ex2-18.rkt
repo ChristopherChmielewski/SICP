@@ -6,7 +6,7 @@
         (cons (car sublist) rlist)
         (reverse (cons (car sublist) rlist) (cdr sublist) (+ n 1))
         ))
-  (reverse (list (car items)) (cdr items)) 0) ; Note on the initial iterative call: see below
+  (reverse (list (car items)) (cdr items) 0)) ; Note on the initial iterative call: see below
 
 ; Note on the initial iterative call: trying to cons an element directly to another list creates a
 ; new list with the element nested as its own list (due to the asymmetry of cons when trying to
