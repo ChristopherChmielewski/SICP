@@ -14,6 +14,22 @@
 ; (list (car items)) in the intial iterative call so reverse is always dealing with two lists as
 ; arguments
 
+(define (deep-reverse items)
+  (define (reverse rlist sublist)
+    (if (null? (cdr sublist))
+        (cons (deep-reverse (car sublist)) rlist)
+        (reverse (cons (car sublist) rlist) (cdr sublist))
+        ))
+  (reverse (wrap-first items) (cdr items))) ; Note on the initial iterative call: see below
+
+(define (wrap-first items) ; a helper for wrapping the first element in items as a list
+  (list (car items)))
+
 ; test
 
-(reverse-list (list 1 2 3 4))
+(define x (list (list 1 2) (list 3 4)))
+(define y (list 1 2))
+
+(deep-reverse x)
+; (reverse-list y)
+; (deep-reverse y)
