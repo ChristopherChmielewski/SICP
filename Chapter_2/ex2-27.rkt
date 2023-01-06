@@ -1,41 +1,43 @@
 #lang sicp
 
-(define (deep-reverse items)
+(define (deep-reverse lt)
   (define (reverse sublist rlist)
-    (cond ((not (pair? sublist)) (cons sublist rlist))
-          ((and (null? (cdr sublist)) (pair? sublist)) (reverse (car sublist) rlist))
-          ((null? (cdr sublist)) (cons (car sublist) rlist))
+    (cond ((null? sublist) rlist)
+          ((not (pair? (car sublist))) (reverse (cdr sublist) (add-to-rlist (car sublist) rlist)))
           ((pair? (car sublist))
-           (reverse (cdr sublist) (reverse (car sublist) rlist))  ; (reverse (3 4) (reverse (1 2) nil))
+           (reverse (cdr sublist) (add-to-rlist (deep-reverse (car sublist)) rlist))
            )
-          (else (cons (reverse (cdr sublist) (cons (car sublist) nil)) rlist))
           ))
-  (reverse items nil))
+  (reverse lt nil)
+  )
+
+(define (add-to-rlist element rlist)
+  (cons element rlist))
 
 ; test
 
-(define x (list (list 1 2) (list 3 4)))
-(define y (list (list (list 1 2) 3) (list 4 5)))
-(define z (list 1 2 3 (list 4 5)))
-(define a (list 1 2 3 (list 4 (list 5 (list 6 (list 7))))))
+(define a (list 1 2 3 4))
+(define b (list (list 1 2)))
+(define c (list (list 1 2) (list 3 4)))
+(define d (list 1 (list 2 3)))
+(define e (list 1 2 3 4 (list 5 6 (list 7 8 (list 9 10 (list 11 12 (list (list 13 14))))))))
 
-; (deep-reverse (list 3 4))
-
-x
-(deep-reverse x)
-(newline)
-
-y
-(deep-reverse y)
-(newline)
-
-z
-(deep-reverse z)
-
-(newline)
 a
 (deep-reverse a)
+(newline)
 
-; (pair? 1)
-; (null? 1)
-; (null? (cdr (cdr (list 1 2))))
+b
+(deep-reverse b)
+(newline)
+
+c
+(deep-reverse c)
+(newline)
+
+d
+(deep-reverse d)
+(newline)
+
+e
+(deep-reverse e)
+(newline)
