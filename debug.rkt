@@ -17,25 +17,5 @@
 (define x (list (list 1 2) (list 3 4)))
 (define y (list (list (list 1 2) 3) (list 4 5)))
 (define z (list 1 2 3 (list 4 5)))
-(define a (list 1 2 3 (list 4 (list 5 (list 6 (list 7))))))
 
-; (deep-reverse (list 3 4))
-
-x
 (deep-reverse x)
-(newline)
-
-y
-(deep-reverse y)
-(newline)
-
-z
-(deep-reverse z)
-
-(newline)
-a
-(deep-reverse a)
-
-; (pair? 1)
-; (null? 1)
-; (null? (cdr (cdr (list 1 2))))
